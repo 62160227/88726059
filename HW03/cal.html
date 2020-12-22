@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cal</title>
+    <script>
+        function sumall(){
+            k = document.getElementById('k');
+            w = document.getElementById('w');
+            var sum = document.getElementById('sum');
+            s1 =document.getElementById('s1');
+            if(parseInt(s1.value) == 1){
+                sum.innerHTML=parseInt(k.value) + parseInt(w.value)
+            }
+            if(parseInt(s1.value) == 2){
+                sum.innerHTML=parseInt(k.value) - parseInt(w.value)
+            }
+            if(parseInt(s1.value) == 3){
+                sum.innerHTML=parseInt(k.value) * parseInt(w.value)
+            }
+            if(parseInt(s1.value) == 4){
+                sum.innerHTML=parseInt(k.value) / parseInt(w.value)
+            }
+           
+       
+        } 
+    </script>
+</head>
+<body>
+            <p>โปรแกรมเครื่องคิดเลข-cal.html</p>
+            <input type="text" placeholder="Imput number" id="k">
+            <td><select name="mark" id="s1">
+            <option value="1" >+</option>
+            <option value="2" >-</option>
+            <option value="3" >*</option>
+            <option value="4" >/</option>
+            </select>
+            <input type="text" placeholder="Enter the desired numbers." id="w"><br>
+            <div id="sum"></div>
+            <button onclick="sumall()">calculate</button><br>
+</body>
+</html>

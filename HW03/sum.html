@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function summary(){
+          sum = document.getElementById('s').innerHTML=""
+          x = document.getElementById('x');
+          y = document.getElementById('y');
+          s = document.getElementById('s');
+          all = document.getElementById('all');
+          var t = 0;
+          
+    for ( let i = parseInt(x.value);i<=parseInt(y.value);i++) {
+        t = t+i;
+        
+
+        s.innerHTML +=i
+        if(i<parseInt(y.value)){
+            
+            s.innerHTML += "+"
+        }
+        if(i==parseInt(y.value)){
+            s.innerHTML += "="
+            s.innerHTML += t
+        }
+     
+        
+        
+        
+    }
+    
+}
+</script>
+</head>
+<body>
+            <p>โปรแกรมบวกสะสม-sum.html</p>
+            <input type="text" placeholder="Enter the desired numbers." id="x">  
+            <input type="text" placeholder="Enter the desired numbers." id="y">
+            <button onclick="summary()">calculate</button>
+            <div id="s"></div>
+            <div id="all"></div>
+            
+</body>
+</html>
+
+           

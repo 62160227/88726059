@@ -1,0 +1,14 @@
+<script>
+    function multi(z) {
+        div = document.getElementById('disp');
+        div.innerHTML = ""; // 
+        for (i = 1; i <= 12; i++) {
+            div.innerHTML += z + "x" + i + "=" + (z * i) + "<br>";
+        }
+    }
+    
+</script>
+<div>โปรแกรมสูตรคูณ</div>
+<input type="text" onkeyup="multi(this.value);">
+<div id="disp"></div>
+
