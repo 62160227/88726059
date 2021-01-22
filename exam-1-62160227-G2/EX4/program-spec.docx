@@ -1,0 +1,58 @@
+โปรมแกรมหรือเกมส์เป็นเกมตอบคำถามโดยใช้ JavaScript และ css html ในการทำ
+ <script language="JavaScript">
+        var numQues = 4;
+        var numChoi = 3;
+        var answers = new Array(4);
+        
+        answers[0] = "Burapha University";
+        answers[1] = "22.00";
+        answers[2] = "15 คณะ 6 วิทยาลัย";
+        answers[3] = "11 ชั้น";
+       
+        function getScore(form) {
+          var score = 0;
+          var currElt;
+          var currSelection;
+          for (i=0; i<numQues; i++) {
+            currElt = i*numChoi;
+            for (j=0; j<numChoi; j++) {
+              currSelection = form.elements[currElt + j];
+              if (currSelection.checked) {
+                if (currSelection.value == answers[i]) {
+                  score++;
+                  break;
+โดยการทำงานนี้นั้นคือการสร้าง Array เข้ามาเพื่อเก็บค่าคำตอบหรือเฉลยที่เราทำไว้และต่อมาก็จะเข้าloobของการเก็บ score
+   score = Math.round(score/numQues*100);
+          form.percentage.value = score + "%";
+          var correctAnswers = "";
+          for (i=1; i<=numQues; i++) {
+            correctAnswers += i + ". " + answers[i-1] + "\r\n";
+          }
+          form.solutions.value = correctAnswers;
+ต่อมาเมื่อได้คะแนนมาแล้วก็จะเข้าที่loobนี้เพิ่อให้คะแนนออกมาเป็น % ตามจำนวนข้อที่ถูก
+<font face="kanit" size="3">
+    <form name="quiz">
+    1. Buu ย่อมาจากอะไร ?<br>
+    <input type="radio" name="q1" value="Burapha University">Burapha University<br>
+    <input type="radio" name="q1" value="Burapha Unicorn">Burapha Unicorn<br>
+    <input type="radio" name="q1" value="Bangkok University">Bangkok University<p>
+    2. เซเว่นในมหาวิทยาลัยปิดเวลาไหน ?<br>
+    <input type="radio" name="q2" value="23.00">23.00<br>
+    <input type="radio" name="q2" value="ไม่ปิดเปิดตลอด">ไม่ปิดเปิดตลอด<br>
+    <input type="radio" name="q2" value="22.00">22.00</p>
+    3. มหาวิทยาลัยบูรพามีทั้งหมดกี่คณะ/วิทยาลัย ?<br>
+    <input type="radio" name="q3" value="20 คณะ 10 วิทยาลัย">20 คณะ 10 วิทยาลัย<br>
+    <input type="radio" name="q3" value="55 คณะ 90 วิทยาลัย">55 คณะ 90 วิทยาลัย<br>
+    <input type="radio" name="q3" value="15 คณะ 6 วิทยาลัย">15 คณะ 6 วิทยาลัย</p>
+     4. ตึกคณะวิทยาการสารสนเทศมีกี่ชั้น?<br>
+    <input type="radio" name="q4" value="15 ชั้น">15 ชั้น<br>
+    <input type="radio" name="q4" value="11 ชั้น">11 ชั้น<br>
+    <input type="radio" name="q4" value="20 ชั้น">20 ชั้น<p>
+    <input type="button" value="ตรวจคำตอบ" onClick="getScore(this.form)">
+    <input type="reset" value="ลบคำตอบ"> </p>
+  
+    <p> คะแนนที่ได้ = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+    เฉลย :<br>
+    <textarea class="bgclr" name="solutions" wrap="virtual" rows="4" cols="30" disabled>
+ส่วนตรงนี้จะเป็นการกำหนดคำตอบในแต่ละข้อและจะมีการทำ button ขึนมาเพือตรวจคำตอบและลบคำตอบโดยใช้ function onClick 
+เพื่อให้ทำงานเมือเราclickเท่านั้น
